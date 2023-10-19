@@ -2,6 +2,7 @@ package org.example.db;
 
 import org.example.cli.DeliveryEmployee;
 import org.example.cli.DeliveryEmployeeRequest;
+import org.example.cli.UpdateDeliveryEmployee;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class DeliveryEmployeeDao {
         return -1;
     }
 
-    public void updateDeliveryEmployee(int id, DeliveryEmployeeRequest deliveryEmployee) throws SQLException {
+    public void updateDeliveryEmployee(int id, UpdateDeliveryEmployee deliveryEmployee) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
         String updateStatement = "UPDATE `DeliveryEmployee` SET `name` = ?, `salary` = ?, `bank_account_number` = ? WHERE `delivery_employee_id` = ?;";
