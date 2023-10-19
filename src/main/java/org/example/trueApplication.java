@@ -32,7 +32,7 @@ public class trueApplication extends Application<trueConfiguration> {
     @Override
     public void run(final trueConfiguration configuration,
                     final Environment environment) {
-
+        System.out.println("I like to leave my laptop unlocked when I get lunch \uD83C\uDF5E");
         environment.jersey().register(new DeliveryEmployeeController());
         // TODO: implement application
     }

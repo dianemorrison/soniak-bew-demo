@@ -60,4 +60,19 @@ public class DeliveryEmployeeDao {
 
         return -1;
     }
+
+    public void updateDeliveryEmployee(int id, DeliveryEmployeeRequest deliveryEmployee) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+
+        String updateStatement = "UPDATE `DeliveryEmployee` SET name = ?, salary = ?, bank_account_number = ?)";
+
+        PreparedStatement st = c.prepareStatement(updateStatement);
+
+        st.setString(1, deliveryEmployee.getName());
+        st.setDouble(2, deliveryEmployee.getSalary());
+        st.setString(3, deliveryEmployee.getBank_account_number());
+        st.setInt(4, id);
+
+        st.executeUpdate();
+    }
 }

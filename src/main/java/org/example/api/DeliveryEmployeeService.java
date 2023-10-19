@@ -29,4 +29,20 @@ public class DeliveryEmployeeService {
             return id;
 
     }
+
+    public void updateDeliveryEmployee(int id, DeliveryEmployeeRequest deliveryEmployee) throws ProjectException, SQLException {
+            String validation = deliveryEmployeeValidator.isValid(deliveryEmployee);
+
+            if (validation != null) {
+                throw new ProjectException();
+            }
+
+            DeliveryEmployee deliveryEmployeeToUpdate = deliveryEmployeeDao.getDeliveryEmployeeById(id);
+
+            if (deliveryEmployeeToUpdate == null) {
+                throw new ProjectException();
+            }
+
+            deliveryEmployeeDao.updateDeliveryEmployee(id, deliveryEmployee);
+    }
 }
