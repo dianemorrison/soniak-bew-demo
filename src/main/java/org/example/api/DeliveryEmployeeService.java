@@ -1,17 +1,21 @@
 package org.example.api;
 
 import org.example.cli.DeliveryEmployee;
+import org.example.cli.DeliveryEmployeeProjectRequest;
 import org.example.cli.DeliveryEmployeeRequest;
 import org.example.client.ProjectException;
 import org.example.core.DeliveryEmployeeValidator;
 import org.example.db.DeliveryEmployeeDao;
+import org.example.db.ProjectDao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeliveryEmployeeService {
     DeliveryEmployeeDao deliveryEmployeeDao = new DeliveryEmployeeDao();
     DeliveryEmployeeValidator deliveryEmployeeValidator = new DeliveryEmployeeValidator();
+    ProjectDao projectDao = new ProjectDao();
 
     public List<DeliveryEmployee> getAllDeliveryEmployees() throws SQLException {
         return deliveryEmployeeDao.getAllDeliveryEmployees();
@@ -28,5 +32,17 @@ public class DeliveryEmployeeService {
             }
             return id;
 
+    }
+    public void assignDeliveryEmployeeToProject(List<DeliveryEmployeeProjectRequest> requests) throws SQLException {
+        List<DeliveryEmployeeProjectRequest> validRequests = new ArrayList<>();
+
+        for(DeliveryEmployeeProjectRequest request : requests){
+            if(deliveryEmployeeDao.deliveryEmployeeExists(request.getDelivery_employee_id()) && projectDao.projectExists(request.getProject_id())){
+                validRequests.add(request);
+            }
+        }
+        if(!validRequests.isEmpty()) {
+            deliveryEmployeeDao.assignDeliveryEmployeeToProject(validRequests);
+        }
     }
 }

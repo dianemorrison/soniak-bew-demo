@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f83da8c8-e21f-41bc-83c7-5beec267344e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/api/DeliveryEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/api/DeliveryEmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/resources/DeliveryEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/DeliveryEmployeeController.java" afterDir="false" />
-    </list>
+    <list default="true" id="f83da8c8-e21f-41bc-83c7-5beec267344e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,10 +36,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "001-Create-new-delivery-employee",
-    "last_opened_file_path": "/Users/filipchojnacki/IdeaProjects/soniak-bew-demo"
+    "last_opened_file_path": "/Users/filipchojnacki/IdeaProjects/soniak-bew-demo",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.cli" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -72,5 +79,31 @@
       <updated>1697703231137</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/api/DeliveryEmployeeService.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/db/ProjectDao.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
