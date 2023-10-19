@@ -5,6 +5,7 @@ import org.example.cli.DeliveryEmployeeRequest;
 import org.example.cli.UpdateDeliveryEmployee;
 import org.example.client.DeliveryEmployeeDoesNotExistException;
 import org.example.client.FailedToUpdateDeliveryEmployeeException;
+import org.example.client.FailedToDeleteEmployeeException;
 import org.example.client.ProjectException;
 import org.example.core.DeliveryEmployeeValidator;
 import org.example.db.DeliveryEmployeeDao;
@@ -59,4 +60,20 @@ public class DeliveryEmployeeService {
             return deliveryEmployee;
 
     }
+
+    public void deleteDeliveryEmployee(int id) throws FailedToDeleteEmployeeException, DeliveryEmployeeDoesNotExistException {
+        try {
+            DeliveryEmployee deliveryEmployeeToDelete = deliveryEmployeeDao.getDeliveryEmployeeById(id);
+
+               if (deliveryEmployeeToDelete == null){
+                   throw new DeliveryEmployeeDoesNotExistException();
+               }
+                deliveryEmployeeDao.deleteDeliveryEmployee(id);
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new FailedToDeleteEmployeeException();
+        }
+    }
+
 }

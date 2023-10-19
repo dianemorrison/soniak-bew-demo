@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f83da8c8-e21f-41bc-83c7-5beec267344e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trueApplication.java" afterDir="false" />
+    <list default="true" id="07ef36ec-c9d7-46d5-b8de-799893794d23" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/client/DeliveryEmployeeDoesNotExistException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/api/DeliveryEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/api/DeliveryEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/resources/DeliveryEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/DeliveryEmployeeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +36,7 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2WySGRI7OzWZpieaeNTqB2B9aod" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,6 +47,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "002",
     "last_opened_file_path": "/Users/filipchojnacki/IdeaProjects/soniak-bew-demo"
+    "git-widget-placeholder": "Merging 005-delete-delivery-employee",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -80,5 +90,16 @@
       <updated>1697703231137</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

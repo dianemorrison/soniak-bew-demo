@@ -6,6 +6,7 @@ import org.example.cli.DeliveryEmployeeRequest;
 import org.example.cli.UpdateDeliveryEmployee;
 import org.example.client.DeliveryEmployeeDoesNotExistException;
 import org.example.client.FailedToUpdateDeliveryEmployeeException;
+import org.example.client.FailedToDeleteEmployeeException;
 import org.example.client.ProjectException;
 
 
@@ -60,6 +61,20 @@ public class DeliveryEmployeeController {
             System.err.println(se.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    @DELETE
+    @Path("/deliveryEmployees/{id}")
+    @Produces
+    public Response deleteDeliveryEmployee(@PathParam("id") int id) {
+        try {
+            deliveryEmployeeService.deleteDeliveryEmployee(id);
+
+            return Response.ok().build();
+
+        } catch (FailedToDeleteEmployeeException e) {
+            System.err.println(e.getMessage());
+            return Response.serverError().build();
 
     }
 
@@ -84,5 +99,9 @@ public class DeliveryEmployeeController {
             System.err.println(e.getMessage());
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
+        } catch (DeliveryEmployeeDoesNotExistException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
+
 }
