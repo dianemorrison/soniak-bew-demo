@@ -29,4 +29,16 @@ public class DeliveryEmployeeService {
             return id;
 
     }
+
+    public void deleteDeliveryEmployee(int id) throws SQLException, FailedToDeleteEmployeeException {
+        try {
+            DeliveryEmployee deliveryEmployeeToDelete = DeliveryEmployeeDao.getDeliveryEmployeeById(id);
+
+            deliveryEmployeeDao.deleteDeliveryEmployee(id);
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
 }

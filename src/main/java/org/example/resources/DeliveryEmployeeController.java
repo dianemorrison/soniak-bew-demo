@@ -40,6 +40,22 @@ public class DeliveryEmployeeController {
             System.err.println(se.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
-
     }
+
+    @DELETE
+    @Path("/deliveryEmployees/{id}")
+    @Produces
+    public Response deleteDeliveryEmployee(@PathParam("id") int id) {
+        try {
+            deliveryEmployeeService.deleteDeliveryEmployee(id);
+
+            return Response.ok().build();
+
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            return Response.serverError().build();
+        }
+    }
+
 }
