@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/resources/DeliveryEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/resources/DeliveryEmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trueApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trueApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/db/DeliveryEmployeeDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "002",
+    "git-widget-placeholder": "003",
     "last_opened_file_path": "/Users/filipchojnacki/IdeaProjects/soniak-bew-demo"
   }
 }]]></component>
