@@ -3,7 +3,9 @@ package org.example.resources;
 import io.swagger.annotations.Api;
 import org.example.api.DeliveryEmployeeService;
 import org.example.cli.DeliveryEmployeeRequest;
+import org.example.cli.UpdateDeliveryEmployee;
 import org.example.client.DeliveryEmployeeDoesNotExistException;
+import org.example.client.FailedToUpdateDeliveryEmployeeException;
 import org.example.client.ProjectException;
 
 
@@ -59,5 +61,28 @@ public class DeliveryEmployeeController {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
 
+    }
+
+    @PUT
+    @Path("/deliveryEmployees/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateDeliveryEmployee(@PathParam("id") int id, UpdateDeliveryEmployee deliverEmployee) {
+        try {
+            deliveryEmployeeService.updateDeliveryEmployee(id, deliverEmployee);
+
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (ProjectException e) {
+            System.err.println(e.getMessage());
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        } catch (SQLException se) {
+            System.err.println(se.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        } catch (DeliveryEmployeeDoesNotExistException e) {
+            System.err.println(e.getMessage());
+            return Response.status(Response.Status.NOT_FOUND).build();
+        } catch (FailedToUpdateDeliveryEmployeeException e) {
+            System.err.println(e.getMessage());
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
     }
 }
