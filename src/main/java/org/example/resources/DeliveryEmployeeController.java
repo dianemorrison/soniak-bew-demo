@@ -35,7 +35,7 @@ public class DeliveryEmployeeController {
             return Response.ok(deliveryEmployeeService.createDeliveryEmployee(employee)).build();
         }catch(ProjectException e){
             System.err.println(e.getMessage());
-            return Response.serverError().build();
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
     }
