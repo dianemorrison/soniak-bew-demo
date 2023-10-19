@@ -31,7 +31,7 @@ public class DeliveryEmployeeService {
 
     }
 
-    public void updateDeliveryEmployee(int id, DeliveryEmployeeRequest deliveryEmployee) throws ProjectException, SQLException {
+    public void updateDeliveryEmployee(int id, DeliveryEmployeeRequest deliveryEmployee) throws ProjectException, SQLException, DeliveryEmployeeDoesNotExistException {
             String validation = deliveryEmployeeValidator.isValid(deliveryEmployee);
 
             if (validation != null) {
@@ -41,7 +41,7 @@ public class DeliveryEmployeeService {
             DeliveryEmployee deliveryEmployeeToUpdate = deliveryEmployeeDao.getDeliveryEmployeeById(id);
 
             if (deliveryEmployeeToUpdate == null) {
-                throw new ProjectException();
+                throw new DeliveryEmployeeDoesNotExistException();
             }
 
             deliveryEmployeeDao.updateDeliveryEmployee(id, deliveryEmployee);

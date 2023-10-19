@@ -75,6 +75,9 @@ public class DeliveryEmployeeController {
         } catch (SQLException se) {
             System.err.println(se.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        } catch (DeliveryEmployeeDoesNotExistException e) {
+            System.err.println(e.getMessage());
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
 }

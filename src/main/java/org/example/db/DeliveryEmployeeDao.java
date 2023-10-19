@@ -64,7 +64,7 @@ public class DeliveryEmployeeDao {
     public void updateDeliveryEmployee(int id, DeliveryEmployeeRequest deliveryEmployee) throws SQLException {
         Connection c = databaseConnector.getConnection();
 
-        String updateStatement = "UPDATE `DeliveryEmployee` SET name = ?, salary = ?, bank_account_number = ?)";
+        String updateStatement = "UPDATE `DeliveryEmployee` SET `name` = ?, `salary` = ?, `bank_account_number` = ? WHERE `delivery_employee_id` = ?;";
 
         PreparedStatement st = c.prepareStatement(updateStatement);
 
