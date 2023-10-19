@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DeliveryEmployeeDao {
 
-    DatabaseConnector databaseConnector = new DatabaseConnector();
+     DatabaseConnector databaseConnector = new DatabaseConnector();
     public List<DeliveryEmployee> getAllDeliveryEmployees() throws SQLException {
         Connection c = databaseConnector.getConnection();
         Statement st = c.createStatement();
@@ -61,6 +61,19 @@ public class DeliveryEmployeeDao {
         return -1;
     }
 
+    public void deleteDeliveryEmployee(int id) throws SQLException {
+
+        Connection c = databaseConnector.getConnection();
+
+        String deleteStatement = "DELETE from DeliveryEmployee WHERE delivery_employee_id = ? ";
+
+        PreparedStatement st = c.prepareStatement(deleteStatement);
+
+        st.setInt(1, id);
+
+        st.executeUpdate();
+    }
+
     public DeliveryEmployee getDeliveryEmployeeById(int id) throws SQLException {
         Connection c = databaseConnector.getConnection();
         String selectStatement  = "SELECT delivery_employee_id, `name`, salary, bank_account_number, national_insurance_number FROM DeliveryEmployee WHERE delivery_employee_id = ?;";
@@ -83,3 +96,8 @@ public class DeliveryEmployeeDao {
         return null;
     }
 }
+
+
+
+
+
