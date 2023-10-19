@@ -1,6 +1,7 @@
 package org.example.db;
 
 import org.example.cli.DeliveryEmployee;
+import org.example.cli.DeliveryEmployeeProjectRequest;
 import org.example.cli.DeliveryEmployeeRequest;
 
 import java.sql.*;
@@ -59,6 +60,42 @@ public class DeliveryEmployeeDao {
         }
 
         return -1;
+    }
+    public void assignDeliveryEmployeeToProject(List<DeliveryEmployeeProjectRequest> requests) throws SQLException{
+        Connection c = databaseConnector.getConnection();
+
+        c.setAutoCommit(false);
+
+        String insertStatement = "INSERT INTO `DeliveryEmployeeProject` (`project_id`, `delivery_employee_id`, `is_Active`, `created_On`, `updated_On`) VALUES (?,?,?,?,?)";
+        PreparedStatement st = c.prepareStatement(insertStatement, Statement. RETURN_GENERATED_KEYS);
+
+        for(DeliveryEmployeeProjectRequest request : requests){
+            st.setInt(1, request.getProject_id());
+            st.setInt(2, request.getDelivery_employee_id());
+            st.setBoolean(3, request.isIs_Active());
+            st.setDate(4, request.getCreated_On());
+            st.setDate(5, request.getUpdated_On());
+            st.addBatch();
+        }
+
+        st.executeBatch();
+
+        c.commit();
+
+        c.close();
+    }
+    public boolean deliveryEmployeeExists(int employeeId) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+
+        Statement st = c.createStatement();
+        ResultSet rs = st.executeQuery("SELECT delivery_employee_id"  +
+                " FROM `DeliveryEmployee` where delivery_employee_id=" + employeeId);
+
+        if(rs.next())
+        {
+            return true;
+        }
+        return false;
     }
 
     public void deleteDeliveryEmployee(int id) throws SQLException {
