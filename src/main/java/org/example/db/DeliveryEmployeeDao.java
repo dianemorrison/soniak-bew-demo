@@ -3,7 +3,6 @@ package org.example.db;
 import org.example.cli.DeliveryEmployee;
 import org.example.cli.DeliveryEmployeeRequest;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

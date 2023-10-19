@@ -2,6 +2,7 @@ package org.example.api;
 
 import org.example.cli.DeliveryEmployee;
 import org.example.cli.DeliveryEmployeeRequest;
+import org.example.client.DeliveryEmployeeDoesNotExistException;
 import org.example.client.ProjectException;
 import org.example.core.DeliveryEmployeeValidator;
 import org.example.db.DeliveryEmployeeDao;
@@ -30,11 +31,11 @@ public class DeliveryEmployeeService {
 
     }
 
-    public DeliveryEmployee getDeliveryEmployeeById (int id) throws SQLException, ProjectException {
+    public DeliveryEmployee getDeliveryEmployeeById (int id) throws SQLException, DeliveryEmployeeDoesNotExistException {
             DeliveryEmployee deliveryEmployee = deliveryEmployeeDao.getDeliveryEmployeeById(id);
 
                 if(deliveryEmployee == null) {
-                    throw new SQLException();
+                    throw new DeliveryEmployeeDoesNotExistException();
             }
 
             return deliveryEmployee;
