@@ -60,4 +60,21 @@ public class DeliveryEmployeeDao {
 
         return -1;
     }
+
+    public DeliveryEmployee getDeliveryEmployeeById(int id) throws SQLException {
+        Connection c = databaseConnector.getConnection();
+        Statement st = c.createStatement();
+        ResultSet rs = st.executeQuery("SELECT delivery_employee_id, `name`, salary, bank_account_number, national_insurance_number FROM DeliveryEmployee WHERE delivery_employee_id="+id);
+
+        while (rs.next()) {
+            return new DeliveryEmployee (
+                    rs.getInt("delivery_employee_id"),
+                    rs.getString("name"),
+                    rs.getDouble("salary"),
+                    rs.getString("bank_account_number"),
+                    rs.getString("national_insurance_number")
+            );
+        }
+        return null;
+    }
 }
