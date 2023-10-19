@@ -31,16 +31,12 @@ public class DeliveryEmployeeService {
     }
 
     public DeliveryEmployee getDeliveryEmployeeById (int id) throws SQLException, ProjectException {
-        try {
             DeliveryEmployee deliveryEmployee = deliveryEmployeeDao.getDeliveryEmployeeById(id);
 
-            if(deliveryEmployee == null) {
-                throw new ProjectException();
+                if(deliveryEmployee == null) {
+                    throw new ProjectException();
             }
             return deliveryEmployee;
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            throw new ProjectException();
-        }
+
     }
 }

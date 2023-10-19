@@ -3,6 +3,7 @@ package org.example.db;
 import org.example.cli.DeliveryEmployee;
 import org.example.cli.DeliveryEmployeeRequest;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,11 +64,16 @@ public class DeliveryEmployeeDao {
 
     public DeliveryEmployee getDeliveryEmployeeById(int id) throws SQLException {
         Connection c = databaseConnector.getConnection();
-        Statement st = c.createStatement();
-        ResultSet rs = st.executeQuery("SELECT delivery_employee_id, `name`, salary, bank_account_number, national_insurance_number FROM DeliveryEmployee WHERE delivery_employee_id="+id);
+        String selectStatement  = "SELECT delivery_employee_id, `name`, salary, bank_account_number, national_insurance_number FROM DeliveryEmployee WHERE delivery_employee_id = ?;";
 
-        while (rs.next()) {
-            return new DeliveryEmployee (
+        PreparedStatement st = c.prepareStatement(selectStatement, Statement.RETURN_GENERATED_KEYS);
+
+        st.setInt(1, id);
+
+        ResultSet rs = st.executeQuery();
+
+        while(rs.next()) {
+            return new DeliveryEmployee(
                     rs.getInt("delivery_employee_id"),
                     rs.getString("name"),
                     rs.getDouble("salary"),
