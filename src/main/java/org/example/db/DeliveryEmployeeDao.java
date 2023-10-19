@@ -66,7 +66,7 @@ public class DeliveryEmployeeDao {
         Connection c = databaseConnector.getConnection();
         String selectStatement  = "SELECT delivery_employee_id, `name`, salary, bank_account_number, national_insurance_number FROM DeliveryEmployee WHERE delivery_employee_id = ?;";
 
-        PreparedStatement st = c.prepareStatement(selectStatement, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement st = c.prepareStatement(selectStatement);
 
         st.setInt(1, id);
 

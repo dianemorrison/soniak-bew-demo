@@ -34,8 +34,9 @@ public class DeliveryEmployeeService {
             DeliveryEmployee deliveryEmployee = deliveryEmployeeDao.getDeliveryEmployeeById(id);
 
                 if(deliveryEmployee == null) {
-                    throw new ProjectException();
+                    throw new SQLException();
             }
+
             return deliveryEmployee;
 
     }
