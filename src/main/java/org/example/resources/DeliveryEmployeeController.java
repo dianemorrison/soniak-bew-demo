@@ -36,6 +36,9 @@ public class DeliveryEmployeeController {
         }catch(ProjectException e){
             System.err.println(e.getMessage());
             return Response.status(Response.Status.BAD_REQUEST).build();
+        }catch(SQLException se){
+            System.err.println(se.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
 
     }

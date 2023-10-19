@@ -16,8 +16,7 @@ public class DeliveryEmployeeService {
     public List<DeliveryEmployee> getAllDeliveryEmployees() throws SQLException {
         return deliveryEmployeeDao.getAllDeliveryEmployees();
     }
-    public int createDeliveryEmployee(DeliveryEmployeeRequest employee) throws ProjectException {
-        try{
+    public int createDeliveryEmployee(DeliveryEmployeeRequest employee) throws ProjectException, SQLException {
             String validation = deliveryEmployeeValidator.isValid(employee);
             if(validation != null){
                 throw new ProjectException();
@@ -28,9 +27,6 @@ public class DeliveryEmployeeService {
                 throw new ProjectException();
             }
             return id;
-        }catch(SQLException e){
-            System.err.println(e.getMessage());
-            throw new ProjectException();
-        }
+
     }
 }
