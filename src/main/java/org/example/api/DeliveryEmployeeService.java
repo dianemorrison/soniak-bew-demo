@@ -2,6 +2,8 @@ package org.example.api;
 
 import org.example.cli.DeliveryEmployee;
 import org.example.cli.DeliveryEmployeeRequest;
+import org.example.client.DeliveryEmployeeDoesNotExistException;
+import org.example.client.FailedToDeleteEmployeeException;
 import org.example.client.ProjectException;
 import org.example.core.DeliveryEmployeeValidator;
 import org.example.db.DeliveryEmployeeDao;
@@ -30,14 +32,29 @@ public class DeliveryEmployeeService {
 
     }
 
-    public void deleteDeliveryEmployee(int id) throws SQLException, FailedToDeleteEmployeeException {
-        try {
-            DeliveryEmployee deliveryEmployeeToDelete = DeliveryEmployeeDao.getDeliveryEmployeeById(id);
+    public DeliveryEmployee getDeliveryEmployeeById (int id) throws SQLException, DeliveryEmployeeDoesNotExistException {
+            DeliveryEmployee deliveryEmployee = deliveryEmployeeDao.getDeliveryEmployeeById(id);
 
-            deliveryEmployeeDao.deleteDeliveryEmployee(id);
+                if(deliveryEmployee == null) {
+                    throw new DeliveryEmployeeDoesNotExistException();
+            }
+
+            return deliveryEmployee;
+
+    }
+
+    public void deleteDeliveryEmployee(int id) throws FailedToDeleteEmployeeException, DeliveryEmployeeDoesNotExistException {
+        try {
+            DeliveryEmployee deliveryEmployeeToDelete = deliveryEmployeeDao.getDeliveryEmployeeById(id);
+
+               if (deliveryEmployeeToDelete == null){
+                   throw new DeliveryEmployeeDoesNotExistException();
+               }
+                deliveryEmployeeDao.deleteDeliveryEmployee(id);
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());
+            throw new FailedToDeleteEmployeeException();
         }
     }
 
