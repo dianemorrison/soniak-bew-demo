@@ -3,7 +3,6 @@ package org.example.api;
 import org.example.cli.DeliveryEmployee;
 import org.example.cli.DeliveryEmployeeProjectRequest;
 import org.example.cli.DeliveryEmployeeRequest;
-import org.example.cli.FailedToUpdateDeliveryEmployeeException;
 import org.example.client.DeliveryEmployeeDoesNotExistException;
 import org.example.client.FailedToDeleteEmployeeException;
 import org.example.client.ProjectException;
