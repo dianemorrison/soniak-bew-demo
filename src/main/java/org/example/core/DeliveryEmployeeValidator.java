@@ -13,4 +13,13 @@ public class DeliveryEmployeeValidator {
         }
         return null;
     }
+
+    public String isValidUpdate(DeliveryEmployeeRequest employee) {
+        if(employee.getBank_account_number().length() != 8){
+            return "Bank account not of right length";
+        }
+
+        return null;
+    }
+
 }
